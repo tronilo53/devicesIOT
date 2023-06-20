@@ -8,7 +8,7 @@
         </div>
         <div class="mb-4">
             <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Email...">
+            <input type="text" class="form-control" id="email" placeholder="Email...">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña:</label>
@@ -22,7 +22,7 @@
             <button type="button" class="btn btn-dark">Iniciar Sesión</button>
         </div>
         <div class="mb-4">
-            <p>¿No tienes Cuenta en devicesIOT? <a href="">Regístrate</a></p>
+            <p>¿No tienes Cuenta en devicesIOT? <a [routerLink]="['/Register']">Regístrate</a></p>
         </div>
     </div>
 </div>
