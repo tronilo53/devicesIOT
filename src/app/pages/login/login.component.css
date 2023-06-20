@@ -8,8 +8,25 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.login .logo {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.login .logo img {
+    width: 15rem;
+}
+.login .content .title {
+    text-align: center;
+    margin-top: 10px;
+    color: #494949;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
 .login .content {
-    width: 60%;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -19,7 +36,18 @@
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
     padding: 10px;
+    box-shadow: 1px 1px 10px #494949;
 }
 .login .content label {
     color: black;
+}
+
+/* @MEDIAS */
+@media screen and (max-width: 415px) {
+    .login .content {
+        width: 300px;
+    }
+    .login .content .title {
+        font-size: 1rem;
+    }
 }
