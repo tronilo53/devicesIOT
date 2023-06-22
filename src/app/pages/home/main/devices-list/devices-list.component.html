@@ -1,0 +1,39 @@
+<div class="devicesList">
+    <div class="notDevices none" #notDevices>
+        <div class="alert alert-warning">
+            <span class="material-symbols-outlined" style="font-size: 2rem; vertical-align: middle;">report</span>
+                No se encuentran dispositivos
+        </div>
+    </div>
+    <div class="existDevices" #existDevices>
+        <h4 class="mb-3"><span class="material-symbols-outlined" style="vertical-align: middle;">phonelink_setup</span> Dispositivos Instalados</h4>
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Alias</th>
+                        <th>Serial</th>
+                        <th>Fcha.Instalación</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let device of testDevices">
+                        <td>{{ device.alias }}</td>
+                        <td>{{ device.serial }}</td>
+                        <td>{{ device.installDate }}</td>
+                        <td>
+                            <a class="btn btn-dark" [routerLink]="['/Home/Main/DetailDevice', device.id]">
+                                <span class="material-symbols-outlined" style="vertical-align: middle;">info</span>
+                                 Más...
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert alert-info" role="alert">
+            Si detecta problemas con alguno de los dispositivos, no dudes en ponerte en contacto con <strong>Soporte</strong> para verificar el problema.
+        </div>
+    </div>
+</div>

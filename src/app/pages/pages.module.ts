@@ -8,6 +8,9 @@ import { ComponentsModule } from '../components/components.module';
 import { MainComponent } from './home/main/main.component';
 import { ProfileComponent } from './home/profile/profile.component';
 import { SupportComponent } from './home/support/support.component';
+import { DetailDeviceComponent } from './home/main/detail-device/detail-device.component';
+import { DevicesListComponent } from './home/main/devices-list/devices-list.component';
+import { NewDeviceComponent } from './home/main/new-device/new-device.component';
 
 
 
@@ -18,7 +21,10 @@ import { SupportComponent } from './home/support/support.component';
     RegisterComponent,
     MainComponent,
     ProfileComponent,
-    SupportComponent
+    SupportComponent,
+    DetailDeviceComponent,
+    DevicesListComponent,
+    NewDeviceComponent
   ],
   imports: [
     CommonModule,

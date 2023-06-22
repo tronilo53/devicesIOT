@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="../../../assets/logo/logo_small_icon_only.png" alt="logo.png" style="width: 40px; height: 40px; vertical-align: middle;">
@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" [routerLink]="['/Home']" routerLinkActive="active" >Home</a>
+                    <a class="nav-link" [routerLink]="['/Home/Main']" routerLinkActive="active" >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/Profile']" routerLinkActive="active" >Perfil</a>
+                    <a class="nav-link" [routerLink]="['/Home/Profile']" routerLinkActive="active" >Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/Support']" routerLinkActive="active" >Soporte</a>
+                    <a class="nav-link" [routerLink]="['/Home/Support']" routerLinkActive="active" >Soporte</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

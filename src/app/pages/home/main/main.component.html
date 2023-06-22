@@ -1,1 +1,24 @@
-<p>main works!</p>
+<div class="main">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['DevicesList']" routerLinkActive="active" >Dispositivos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['NewDevice']" routerLinkActive="active" >Nuevo Dispositivo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" [routerLink]="['DetailDevice']" routerLinkActive="active" >Info</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
