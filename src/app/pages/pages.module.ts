@@ -4,6 +4,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
+import { ComponentsModule } from '../components/components.module';
+import { MainComponent } from './home/main/main.component';
+import { ProfileComponent } from './home/profile/profile.component';
+import { SupportComponent } from './home/support/support.component';
 
 
 
@@ -11,11 +15,15 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MainComponent,
+    ProfileComponent,
+    SupportComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ComponentsModule
   ],
   exports: [
     HomeComponent
