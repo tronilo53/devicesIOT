@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class DetailDeviceComponent implements OnInit {
 
   public id: string = '';
-  private dataDevice: any[] = [];
+  public dataDevice: any = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,7 +21,8 @@ export class DetailDeviceComponent implements OnInit {
     this.activatedRoute.params.subscribe((p: Params) => {
       this.id = p['id'];
       this.__dataService.getDevices().subscribe((e: any) => {
-        this.dataDevice = e;
+        this.dataDevice = e[0];
+        console.log( this.dataDevice );
       });
     });
   }
