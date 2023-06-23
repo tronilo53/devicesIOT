@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ApexNonAxisChartSeries, ApexChart, ApexResponsive } from "ng-apexcharts";
 import { DataService } from 'src/app/services/data.service';
-
-export type ChartOptions = {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  responsive: ApexResponsive[];
-  labels: any;
-};
 
 @Component({
   selector: 'app-detail-device',
@@ -18,7 +10,6 @@ export type ChartOptions = {
 export class DetailDeviceComponent implements OnInit {
 
   public id: string = '';
-  public chartOptions: ChartOptions;
   private dataDevice: any[] = [];
 
   constructor(
