@@ -11,6 +11,7 @@ import { SupportComponent } from './home/support/support.component';
 import { DetailDeviceComponent } from './home/main/detail-device/detail-device.component';
 import { DevicesListComponent } from './home/main/devices-list/devices-list.component';
 import { NewDeviceComponent } from './home/main/new-device/new-device.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
@@ -29,7 +30,8 @@ import { NewDeviceComponent } from './home/main/new-device/new-device.component'
   imports: [
     CommonModule,
     RouterModule,
-    ComponentsModule
+    ComponentsModule,
+    NgCircleProgressModule.forRoot()
   ],
   exports: [
     HomeComponent
