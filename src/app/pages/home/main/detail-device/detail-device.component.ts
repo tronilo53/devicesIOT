@@ -14,15 +14,16 @@ export class DetailDeviceComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private __dataService: DataService 
+    public __dataService: DataService 
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((p: Params) => {
       this.id = p['id'];
       this.__dataService.getDevices().subscribe((e: any) => {
-        this.dataDevice = e[0];
-        console.log( this.dataDevice );
+        for( let i = 0; i < e.length; i++ ) {
+          if( e[i].id === this.id ) this.dataDevice = e[i];
+        }
       });
     });
   }
