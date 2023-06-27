@@ -13,6 +13,7 @@ import { DevicesListComponent } from './home/main/devices-list/devices-list.comp
 import { NewDeviceComponent } from './home/main/new-device/new-device.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { PipesModule } from '../pipes/pipes.module';
+import { AvatarComponent } from './home/profile/avatar/avatar.component';
 
 
 
@@ -26,7 +27,8 @@ import { PipesModule } from '../pipes/pipes.module';
     SupportComponent,
     DetailDeviceComponent,
     DevicesListComponent,
-    NewDeviceComponent
+    NewDeviceComponent,
+    AvatarComponent
   ],
   imports: [
     CommonModule,
