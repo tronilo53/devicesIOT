@@ -1,1 +1,22 @@
-<p>support works!</p>
+<div class="support">
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['NewIncident']" routerLinkActive="active" >Nueva Incidencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['MyIncidents']" routerLinkActive="active" >Mis Incidencias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" [routerLink]="['DetailIncident']" routerLinkActive="active" >Info</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,6 +15,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { PipesModule } from '../pipes/pipes.module';
 import { AvatarComponent } from './home/profile/avatar/avatar.component';
 import { InfoComponent } from './home/profile/info/info.component';
+import { NewIncidentComponent } from './home/support/new-incident/new-incident.component';
+import { MyIncidentsComponent } from './home/support/my-incidents/my-incidents.component';
+import { DetailIncidentComponent } from './home/support/detail-incident/detail-incident.component';
 
 
 
@@ -30,7 +33,10 @@ import { InfoComponent } from './home/profile/info/info.component';
     DevicesListComponent,
     NewDeviceComponent,
     AvatarComponent,
-    InfoComponent
+    InfoComponent,
+    NewIncidentComponent,
+    MyIncidentsComponent,
+    DetailIncidentComponent
   ],
   imports: [
     CommonModule,

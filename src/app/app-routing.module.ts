@@ -11,6 +11,9 @@ import { DevicesListComponent } from './pages/home/main/devices-list/devices-lis
 import { NewDeviceComponent } from './pages/home/main/new-device/new-device.component';
 import { AvatarComponent } from './pages/home/profile/avatar/avatar.component';
 import { InfoComponent } from './pages/home/profile/info/info.component';
+import { NewIncidentComponent } from './pages/home/support/new-incident/new-incident.component';
+import { MyIncidentsComponent } from './pages/home/support/my-incidents/my-incidents.component';
+import { DetailIncidentComponent } from './pages/home/support/detail-incident/detail-incident.component';
 
 const routes: Routes = [
   { path: 'Login', component: LoginComponent },
@@ -38,7 +41,16 @@ const routes: Routes = [
           { path: '**', pathMatch: 'full', redirectTo: 'InfoProfile' }
         ] 
       },
-      { path: 'Support', component: SupportComponent },
+      {   
+        path: 'Support', 
+        component: SupportComponent,
+        children: [
+          { path: 'NewIncident', component: NewIncidentComponent },
+          { path: 'MyIncidents', component: MyIncidentsComponent },
+          { path: 'DetailIncident', component: DetailIncidentComponent },
+          { path: '**', pathMatch: 'full', redirectTo: 'NewIncident' }
+        ] 
+      },
       { path: '**', pathMatch: 'full', redirectTo: 'Main' }
     ] 
    },
