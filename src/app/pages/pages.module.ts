@@ -14,6 +14,7 @@ import { NewDeviceComponent } from './home/main/new-device/new-device.component'
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { PipesModule } from '../pipes/pipes.module';
 import { AvatarComponent } from './home/profile/avatar/avatar.component';
+import { InfoComponent } from './home/profile/info/info.component';
 
 
 
@@ -28,7 +29,8 @@ import { AvatarComponent } from './home/profile/avatar/avatar.component';
     DetailDeviceComponent,
     DevicesListComponent,
     NewDeviceComponent,
-    AvatarComponent
+    AvatarComponent,
+    InfoComponent
   ],
   imports: [
     CommonModule,

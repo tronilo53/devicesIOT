@@ -9,6 +9,8 @@ import { SupportComponent } from './pages/home/support/support.component';
 import { DetailDeviceComponent } from './pages/home/main/detail-device/detail-device.component';
 import { DevicesListComponent } from './pages/home/main/devices-list/devices-list.component';
 import { NewDeviceComponent } from './pages/home/main/new-device/new-device.component';
+import { AvatarComponent } from './pages/home/profile/avatar/avatar.component';
+import { InfoComponent } from './pages/home/profile/info/info.component';
 
 const routes: Routes = [
   { path: 'Login', component: LoginComponent },
@@ -27,7 +29,15 @@ const routes: Routes = [
           { path: '**', pathMatch: 'full', redirectTo: 'DevicesList' }
         ] 
       },
-      { path: 'Profile', component: ProfileComponent },
+      { 
+        path: 'Profile', 
+        component: ProfileComponent,
+        children: [
+          { path: 'InfoProfile', component: InfoComponent },
+          { path: 'Avatar', component: AvatarComponent },
+          { path: '**', pathMatch: 'full', redirectTo: 'InfoProfile' }
+        ] 
+      },
       { path: 'Support', component: SupportComponent },
       { path: '**', pathMatch: 'full', redirectTo: 'Main' }
     ] 
