@@ -1,1 +1,17 @@
-<p>new-incident works!</p>
+<div class="newIncident">
+    <div class="mb-3">
+        <label for="ticket" class="form-label">Nº Ticket:</label>
+        <input type="text" class="form-control" value="INC{{ticket}}" readonly disabled>
+    </div>
+    <div class="mb-3">
+        <label for="issue" class="form-label">Asunto:</label>
+        <input id="issue" type="text" class="form-control" placeholder="Asunto..." [(ngModel)]="inc.issue">
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Incidencia:</label>
+        <textarea id="message" class="form-control" cols="30" rows="5" [(ngModel)]="inc.message" style="resize: none;"></textarea>
+    </div>
+    <div class="mb-3 w-25">
+        <button type="button" class="btn btn-dark w-100 disabled" #btnSend>Enviar</button>
+    </div>
+</div>

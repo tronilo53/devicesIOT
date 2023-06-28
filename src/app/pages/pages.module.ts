@@ -18,6 +18,7 @@ import { InfoComponent } from './home/profile/info/info.component';
 import { NewIncidentComponent } from './home/support/new-incident/new-incident.component';
 import { MyIncidentsComponent } from './home/support/my-incidents/my-incidents.component';
 import { DetailIncidentComponent } from './home/support/detail-incident/detail-incident.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -43,7 +44,8 @@ import { DetailIncidentComponent } from './home/support/detail-incident/detail-i
     RouterModule,
     ComponentsModule,
     NgCircleProgressModule.forRoot(),
-    PipesModule
+    PipesModule,
+    FormsModule
   ],
   exports: [
     HomeComponent
