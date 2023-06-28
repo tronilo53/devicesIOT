@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ComunicationService } from 'src/app/services/comunication.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -20,8 +22,12 @@ export class AvatarComponent implements OnInit, AfterViewInit {
     'Superman-256.png', 
     'the-Thing-256.png' ];
   @ViewChildren('avatarsImage') avatarImages: QueryList<ElementRef>;
+  public avatar: Observable<string>;
 
-  constructor( private renderer: Renderer2 ) {}
+  constructor( 
+    private renderer: Renderer2,
+    private __comunicationService: ComunicationService 
+  ) {}
 
   ngOnInit(): void {
     
@@ -32,6 +38,7 @@ export class AvatarComponent implements OnInit, AfterViewInit {
         this.renderer.addClass( this.avatarImages.toArray()[i].nativeElement, 'disabled' );
       }
     }
+    this.avatar = this.__comunicationService.getAvatar();
   }
 
   public changeAvatar( avatar: string ) {
@@ -64,7 +71,7 @@ export class AvatarComponent implements OnInit, AfterViewInit {
       }).then((result) => {
         if (result.isConfirmed) {
           localStorage.setItem( 'avatar', avatar );
-          history.back();
+          //history.back();
         }
       })
     }
