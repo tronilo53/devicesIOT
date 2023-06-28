@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComunicationService } from 'src/app/services/comunication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,10 +13,11 @@ export class NavbarComponent implements OnInit {
     { username: 'tironlan', name: 'Tirion', email: 'tirionlan@gmail.com', creation: '26/06/23', status: 'enabled', rol: 'user', avatar: 'Namor-256.png' },
     { username: 'kalesi', name: 'Daneris', email: 'kalesidragons@gmail.com', creation: '20/06/23', status: 'enabled', rol: 'admin', avatar: 'Invisible-Woman-256.png' }
   ];
+  public avatar: string = '';
 
-  constructor() {}
+  constructor( private __comunicationService: ComunicationService ) {}
 
   ngOnInit(): void {
-    
+    this.__comunicationService.getAvatar().subscribe(e => this.avatar = e);
   }
 }

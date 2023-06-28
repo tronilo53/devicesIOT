@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class ComunicationService {
 
   constructor() { }
 
-  public getAvatar() {
+  public getAvatar(): Observable<string> {
     return this.avatar$.asObservable();
   }
   public setAvatar(avatar: string): void {
