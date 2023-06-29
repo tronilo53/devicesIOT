@@ -1,7 +1,4 @@
 import { AfterViewInit, Component, ElementRef, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ComunicationService } from 'src/app/services/comunication.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-avatar',
@@ -24,28 +21,20 @@ export class AvatarComponent implements AfterViewInit {
     'default.png' 
   ];
   @ViewChildren('avatarsImage') avatarImages: QueryList<ElementRef>;
-  public avatar: Observable<string>;
 
-  constructor( 
-    private renderer: Renderer2,
-    private __comunicationService: ComunicationService 
-  ) {}
+  constructor( private renderer: Renderer2 ) {}
 
   ngAfterViewInit(): void {
-    this.avatar = this.__comunicationService.getAvatar();
-    console.log(this.avatar);
-    if( localStorage.getItem('avatar') ) this.__comunicationService.setAvatar(localStorage.getItem('avatar'));
-    this.__comunicationService.getAvatar().subscribe(e => {
-      for( let i = 0; i < this.avatarImages.toArray().length; i++ ) {
-        if( this.avatarImages.toArray()[i].nativeElement.childNodes[0].alt === e ) {
-          this.renderer.addClass( this.avatarImages.toArray()[i].nativeElement, 'disabled' );
-        }
+   
+    /*for( let i = 0; i < this.avatarImages.toArray().length; i++ ) {
+      if( this.avatarImages.toArray()[i].nativeElement.childNodes[0].alt === e ) {
+        this.renderer.addClass( this.avatarImages.toArray()[i].nativeElement, 'disabled' );
       }
-    });
+    }*/
   }
 
   public changeAvatar( avatar: string ) {
-    this.__comunicationService.getAvatar().subscribe(e => {
+    /*this.__comunicationService.getAvatar().subscribe(e => {
       if( avatar !== e ) {
         Swal.fire({
           html:`
@@ -81,6 +70,6 @@ export class AvatarComponent implements AfterViewInit {
           }
         })
       }
-    });
+    });*/
   }
 }
