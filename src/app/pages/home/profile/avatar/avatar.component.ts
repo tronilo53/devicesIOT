@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { DataService, User } from 'src/app/services/data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.css']
 })
-export class AvatarComponent implements OnInit, AfterViewInit {
+export class AvatarComponent implements OnInit {
 
   public avatars: string[] = [ 
     'Batman-256.png', 
@@ -22,6 +23,7 @@ export class AvatarComponent implements OnInit, AfterViewInit {
     'default.png' 
   ];
   @ViewChildren('avatarsImage') avatarImages: QueryList<ElementRef>;
+  private user: User;
 
   constructor( 
     private renderer: Renderer2,
@@ -29,29 +31,25 @@ export class AvatarComponent implements OnInit, AfterViewInit {
   ) {}
   
   ngOnInit(): void {
-    const data: any = { id: '1' };
-    this.__dataService.getUser(data).subscribe((e: any) => {
-      console.log(e.res);
-    });
-  }
-  ngAfterViewInit(): void {
-   
-    /*for( let i = 0; i < this.avatarImages.toArray().length; i++ ) {
-      if( this.avatarImages.toArray()[i].nativeElement.childNodes[0].alt === e ) {
-        this.renderer.addClass( this.avatarImages.toArray()[i].nativeElement, 'disabled' );
+    this.__dataService.getUser({ id: '1' }).subscribe((e: any) => {
+      this.user = e[0];
+      for( let i = 0; i < this.avatarImages.toArray().length; i++ ) {
+        if( this.avatarImages.toArray()[i].nativeElement.childNodes[0].alt === this.user.avatar ) {
+          this.renderer.addClass( this.avatarImages.toArray()[i].nativeElement, 'disabled' );
+        }
       }
-    }*/
+    });
   }
 
   public changeAvatar( avatar: string ) {
-    /*if( avatar !== e ) {
+    if( avatar !== this.user.avatar ) {
       Swal.fire({
         html:`
           <div class="container">
             <div class="row align-items-center text-center">
               <div class="col-5">
                 <div style="padding: 5px; background-color: #494949; display: inline-block; border-radius: 10px;">
-                  <img src="../../../../../assets/avatars/${localStorage.getItem('avatar')}" style="width: 7rem;"/>
+                  <img src="assets/avatars/${this.user.avatar}" style="width: 7rem;"/>
                 </div>
               </div>
               <div class="col-2">
@@ -59,7 +57,7 @@ export class AvatarComponent implements OnInit, AfterViewInit {
               </div>
               <div class="col-5">
                 <div style="padding: 5px; background-color: #494949; display: inline-block; border-radius: 10px;">
-                  <img src="../../../../../assets/avatars/${avatar}" style="width: 7rem;"/>
+                  <img src="assets/avatars/${avatar}" style="width: 7rem;"/>
                 </div>
               </div>
             </div>
@@ -72,12 +70,9 @@ export class AvatarComponent implements OnInit, AfterViewInit {
         confirmButtonText: 'Adelante!'
       }).then((result) => {
         if (result.isConfirmed) {
-          localStorage.setItem( 'avatar', avatar );
-          this.__comunicationService.setAvatar(avatar);
-          this.__comunicationService.getAvatar().subscribe(e => console.log(e));
-          history.back();
+          console.log(`Avatar cambiado a: ${avatar}`);
         }
       })
-    }*/
+    }
   }
 }

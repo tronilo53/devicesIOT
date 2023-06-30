@@ -22,6 +22,6 @@ export class DataService {
     return this.__httpClient.get( '../../assets/json/devices.json' );
   }
   public getUser( data: any ) {
-    return this.__httpClient.post( 'http://localhost/backend/getUser.php', JSON.stringify(data) );
+    return this.__httpClient.post<User>( 'http://localhost/backend/getUser.php', JSON.stringify(data) );
   }
 }
