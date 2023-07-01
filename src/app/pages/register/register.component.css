@@ -54,3 +54,14 @@
         font-size: 1rem;
     }
 }
+@media screen and (max-width: 280px) {
+    .register .content {
+        width: 240px;
+    }
+    .register .content .title {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+}

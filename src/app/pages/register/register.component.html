@@ -8,18 +8,18 @@
         </div>
         <div class="mb-2">
             <label for="name" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="name" placeholder="Nombre...">
+            <input type="text" class="form-control" id="name" placeholder="Nombre..." [(ngModel)]="data.name">
         </div>
         <div class="mb-2">
             <label for="email" class="form-label">Email:</label>
-            <input type="text" class="form-control" id="email" placeholder="Email...">
+            <input type="text" class="form-control" id="email" placeholder="Email..." [(ngModel)]="data.email">
         </div>
         <div class="mb-2">
             <label for="password" class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" id="password" placeholder="Contraseña...">
+            <input type="password" class="form-control" id="password" placeholder="Contraseña..." [(ngModel)]="data.password">
         </div>
         <div class="mb-2">
-            <button type="button" class="btn btn-dark">Registrarse</button>
+            <button type="button" class="btn btn-dark" (click)="register()">Registrarse</button>
         </div>
         <div class="mb-3">
             <p>¿Ya tienes Cuenta en devicesIOT? <a [routerLink]="['/Login']">Inicia Sesión</a></p>

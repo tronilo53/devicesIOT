@@ -54,7 +54,7 @@ const routes: Routes = [
       { path: '**', pathMatch: 'full', redirectTo: 'Main' }
     ] 
    },
-  { path: '**', pathMatch: 'full', redirectTo: 'Home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'Login' }
 ];
 
 @NgModule({
