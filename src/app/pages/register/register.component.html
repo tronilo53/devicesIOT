@@ -16,7 +16,19 @@
         </div>
         <div class="mb-2">
             <label for="password" class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" id="password" placeholder="Contraseña..." [(ngModel)]="data.password">
+            <div class="input-group">
+                <input type="password" class="form-control" id="password" placeholder="Contraseña..." [(ngModel)]="data.password" (keydown)="checkLetters($event)">
+                <button type="button" class="btn btn-outline-dark" (click)="showInfo()"><span class="material-symbols-outlined" style="vertical-align: middle;">info</span></button>
+            </div>
+            <div class="alert alert-light animate__animated animate__fadeIn none" role="alert" #info>
+                <ul>
+                    <li class="animate__animated animate__fadeIn" #len>Entre 8 y 16 caracteres</li>
+                    <li class="animate__animated animate__fadeIn" #digit>Al menos un dígito</li>
+                    <li class="animate__animated animate__fadeIn" #upper>Al menos una mayúscula</li>
+                    <li class="animate__animated animate__fadeIn" #lower>Al menos una minúscula</li>
+                    <li class="animate__animated animate__fadeIn" #symbol>Al menos un símbolo</li>
+                </ul>
+            </div>
         </div>
         <div class="mb-2">
             <button type="button" class="btn btn-dark" (click)="register()">Registrarse</button>

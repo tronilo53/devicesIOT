@@ -41,6 +41,12 @@
 .register .content label {
     color: black;
 }
+.none {
+    display: none;
+}
+.success {
+    color: green;
+}
 
 /* @MEDIAS */
 @media screen and (max-width: 415px) {
@@ -55,6 +61,9 @@
     }
 }
 @media screen and (max-width: 280px) {
+    label {
+        font-size: 0.8rem;
+    }
     .register .content {
         width: 240px;
     }
@@ -63,5 +72,15 @@
     }
     p {
         font-size: 0.9rem;
+    }
+    .alert {
+        padding: 5px 0;
+    }
+    .alert ul {
+        margin: 0;
+    }
+    .alert li {
+        font-size: 0.8rem;
+        
     }
 }
