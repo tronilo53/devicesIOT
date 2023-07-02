@@ -17,7 +17,7 @@
         <div class="mb-2">
             <label for="password" class="form-label">Contraseña:</label>
             <div class="input-group">
-                <input type="password" class="form-control" id="password" placeholder="Contraseña..." [(ngModel)]="data.password" (keydown)="checkLetters($event)">
+                <input type="password" class="form-control" id="password" placeholder="Contraseña..." [(ngModel)]="data.password">
                 <button type="button" class="btn btn-outline-dark" (click)="showInfo()"><span class="material-symbols-outlined" style="vertical-align: middle;">info</span></button>
             </div>
             <div class="alert alert-light animate__animated animate__fadeIn none" role="alert" #info>
