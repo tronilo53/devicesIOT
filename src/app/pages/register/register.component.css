@@ -44,8 +44,8 @@
 .none {
     display: none;
 }
-.success {
-    color: green;
+.border__error {
+    border: 1px solid tomato;
 }
 
 /* @MEDIAS */

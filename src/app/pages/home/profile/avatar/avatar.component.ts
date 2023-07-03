@@ -31,14 +31,14 @@ export class AvatarComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    this.__dataService.getUser({ id: '1' }).subscribe((e: any) => {
+    /*this.__dataService.getUser({ id: '1' }).subscribe((e: any) => {
       this.user = e[0];
       for( let i = 0; i < this.avatarImages.toArray().length; i++ ) {
         if( this.avatarImages.toArray()[i].nativeElement.childNodes[0].alt === this.user.avatar ) {
           this.renderer.addClass( this.avatarImages.toArray()[i].nativeElement, 'disabled' );
         }
       }
-    });
+    });*/
   }
 
   public changeAvatar( avatar: string ) {

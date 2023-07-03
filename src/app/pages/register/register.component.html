@@ -8,16 +8,16 @@
         </div>
         <div class="mb-2">
             <label for="name" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="name" placeholder="Nombre..." [(ngModel)]="data.name">
+            <input type="text" class="form-control" id="name" placeholder="Nombre..." [(ngModel)]="data.name" (focus)="resetBorder('name')" #name>
         </div>
         <div class="mb-2">
             <label for="email" class="form-label">Email:</label>
-            <input type="text" class="form-control" id="email" placeholder="Email..." [(ngModel)]="data.email">
+            <input type="text" class="form-control" id="email" placeholder="Email..." [(ngModel)]="data.email" (focus)="resetBorder('email')" #email>
         </div>
         <div class="mb-2">
             <label for="password" class="form-label">Contraseña:</label>
             <div class="input-group">
-                <input type="password" class="form-control" id="password" placeholder="Contraseña..." [(ngModel)]="data.password">
+                <input type="password" class="form-control" id="password" placeholder="Contraseña..." [(ngModel)]="data.password" (focus)="resetBorder('password')" #password>
                 <button type="button" class="btn btn-outline-dark" (click)="showInfo()"><span class="material-symbols-outlined" style="vertical-align: middle;">info</span></button>
             </div>
             <div class="alert alert-light animate__animated animate__fadeIn none" role="alert" #info>

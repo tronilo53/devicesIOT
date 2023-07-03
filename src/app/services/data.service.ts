@@ -21,7 +21,7 @@ export class DataService {
   public getDevices() {
     return this.__httpClient.get( '../../assets/json/devices.json' );
   }
-  public getUser( data: any ) {
-    return this.__httpClient.post<User>( 'https://freelsdevcamp.es/backend/getUser.php', JSON.stringify(data) );
+  public setNewUser( data: any ) {
+    return this.__httpClient.post( 'https://freelsdevcamp.es/devicesIOT/src/assets/backend/setNewUser.php', JSON.stringify(data) );
   }
 }
