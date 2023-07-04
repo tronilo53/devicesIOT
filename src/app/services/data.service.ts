@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 
 export interface User {
   id: number;
-  username: string;
   name: string;
   email: string;
   creation: Date;
   status: string;
   role: string;
   avatar: string;
+  token: string;
 }
 @Injectable({
   providedIn: 'root'

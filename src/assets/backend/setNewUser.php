@@ -11,12 +11,14 @@
     $stmt -> execute([ $params->email ]);
     if( $stmt -> fetchColumn() > 0 ) $res = [ "res" => "User exist" ];
     else {
-        $stmt = $pdo -> prepare('INSERT INTO users(name,email) VALUES(?,?)');
-        $stmt -> execute([ $params->name, $params->email ]);
+        $token = bin2hex( openssl_random_pseudo_bytes( 200 ) );
+        $password_hash = password_hash( $params->password, PASSWORD_DEFAULT, [ 'cost' => 15 ] );
+        $stmt = $pdo -> prepare('INSERT INTO users(name,email,password,token) VALUES(?,?,?,?)');
+        $stmt -> execute([ $params->name, $params->email, $password_hash, $token ]);
         if( !$stmt ) $res = [ 'res' => 'Error to Insert the User' ];
         else {
             $last_id = $pdo -> lastInsertId();
-            $stmt = $pdo -> prepare('SELECT id,name,email,creation,status,role,avatar FROM users WHERE id = ?');
+            $stmt = $pdo -> prepare('SELECT * FROM users WHERE id = ?');
             $stmt -> execute([ $last_id ]);
             $res = $stmt -> fetchAll();
         }
