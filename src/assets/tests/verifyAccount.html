@@ -11,6 +11,9 @@
             margin: 0;
             box-sizing: border-box;
         }
+        a {
+            text-decoration: none;
+        }
         .container {
             text-align: center;
             border: 1px solid lightgray;
@@ -33,12 +36,14 @@
         }
         .container .container__header > div:nth-child(2) {
             flex-grow: 1;
+        }
+        .container .container__header > div:nth-child(2) a, .container .container__header > div:nth-child(2) p {
             color: white;
             font-size: 1.2rem;
             letter-spacing: 2px;
         }
         .container .container__header img {
-            width: 13rem;
+            width: 5rem;
         }
         .container .container__body {
             padding: 30px 10px;
@@ -86,7 +91,7 @@
         <div class="container__header">
             <div>
                 <!--<img src="../src/assets/logo_large.png" alt="logo_large.png">-->
-                <img src="assets/logo/logo_large.png" alt="logo_large.png">
+                <img src="../logo/logo_small_icon_only.png" alt="logo_small_icon_only.png">
             </div>
             <div>
                 <p>freelsdevcamp.es</p>
