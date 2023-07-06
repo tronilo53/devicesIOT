@@ -17,13 +17,13 @@
 
     $stmt = $pdo -> prepare( 'SELECT COUNT(*) FROM users WHERE email = ?' );
     $stmt -> execute([ $params->email ]);
-    if( $stmt -> fetchColumn() > 0 ) $res = [ "res" => "User exist" ];
+    if( $stmt -> fetchColumn() > 0 ) $res = array("res" => "User exist");
     else {
         $token = bin2hex( openssl_random_pseudo_bytes( 200 ) );
         $password_hash = password_hash( $params->password, PASSWORD_DEFAULT, [ 'cost' => 15 ] );
         $stmt = $pdo -> prepare('INSERT INTO users(name,email,password,token) VALUES(?,?,?,?)');
         $stmt -> execute([ $params->name, $params->email, $password_hash, $token ]);
-        if( !$stmt ) $res = [ 'res' => 'Error to Insert the User' ];
+        if( !$stmt ) $res = array("res" => "Error to Insert the User");
         else {
             $mail = new PHPMailer(true);
             // CONFIGURACION DEL SERVIDOR
@@ -84,7 +84,7 @@
                         .container .container__header > div:nth-child(2) {
                             flex-grow: 1;
                         }
-                        .container .container__header > div:nth-child(2) a, .container .container__header > div:nth-child(2) p {
+                        .container .container__header > div:nth-child(2) p a {
                             color: white;
                             font-size: 1.2rem;
                             letter-spacing: 2px;
@@ -165,17 +165,18 @@
                     </script>
                 </body>
                 </html>';
-            if( $mail->send() ) $res = [ 'res' => 'User insert successfully' ];
-            else {
+            if( $mail->send() ) {
+                $res = array("res" => "User insert successfully");
+            }else {
                 $last_id = $pdo -> lastInsertId();
                 $stmt = $pdo -> prepare('DELETE FROM users WHERE id = ?');
                 $stmt -> execute([ $last_id ]);
-                $res = [ 'res' => 'User not insert' ];
+                $res = array("res" => "User not insert");
             }
         }
     }
     
     header('Content-Type: application/json');
 
-    echo json_encode($res);
+    echo json_encode($res, );
 ?>
