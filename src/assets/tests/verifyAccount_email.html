@@ -1,0 +1,101 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificaci&oacute;n de cuenta</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+        }
+        .container {
+            text-align: center;
+            border: 1px solid lightgray;
+            width: 80%;
+            height: 100%;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container .container__header {
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgb(34, 145, 219);
+        }
+        .container .container__header h5 {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: white;
+        }
+        .container .container__header img {
+            width: 5rem;
+        }
+        .container .container__body {
+            padding: 30px 10px;
+        }
+        .container .container__body .btn {
+            display: block;
+            width: 15rem;
+            margin: 20px auto;
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            -moz-border-radius: 5px;
+        }
+        .container .container__body .btn:hover {
+            background-color: #494949;
+        }
+        .container .container__body .btn:active {
+            background-color: black;
+        }
+        .container .container__footer {
+            width: 100%;
+            padding: 30px 10px;
+            color: white;
+            text-align: center;
+            height: 100%;
+            background-color: rgb(34, 145, 219);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="container__header">
+            <img src="https://freelsdevcamp.es/devicesIOT/src/assets/logo_small_icon_only.png" alt="logo_small_icon_only.png">
+            <h5>freelsdevcamp.es</h5>
+        </div>
+        <div class="container__body">
+            <h1>¡Hola Luis!</h1>
+            <h3>Vamos a verificar tu cuenta de devicesIOT</h3>
+            <p>Est&aacute;s a un paso m&aacute;s cerca de controlar tus dispositivos.</p>
+            <p>Para verificar tu cuenta, solo tienes que hacer click en el bot&oacute;n, nosotros nos encargamos del resto.</p>
+            <a class="btn" href="https://freelsdevcamp.es/devicesIOT/pages/verifyAccount.php?token=$token">Vamos All&aacute;</a>
+            <p><strong>Si usted no ha solicitado una cuenta en <i>devicesIOT</i> por favor, ignore este mensaje.</strong></p>
+            <p>Nos comprometemos continuamente a cumplir con las leyes de protección de datos aplicables y a garantizar un procesamiento justo y transparente de sus datos personales.
+            Lea nuestra declaración de privacidad, incluido un aviso de información y una política de protección de datos, para obtener información detallada sobre nuestro sitio web.</p>
+        </div>
+        <div class="container__footer">
+            <p>Se podrá responder al email info@freelsdevcamp.es, no obstante, se dará prioridad a las consultas de Soporte para una mayor fluidez y un mejor servicio de asistencia técnica.</p>
+            <p>Aténtamente: El equipo de administración de <i>devicesIOT</i> - freelsdevcamp.es</p>
+            <p style="margin-top: 10px;">freelsdevcamp.es</p>
+            <p>Derechos reservados &copy; <span id="date"></span></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const date = document.getElementById('date');
+        date.innerHTML = new Date().getFullYear();
+    </script>
+</body>
+</html>

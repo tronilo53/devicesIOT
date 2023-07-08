@@ -17,17 +17,17 @@
 
     $stmt = $pdo -> prepare( 'SELECT COUNT(*) FROM users WHERE email = ?' );
     $stmt -> execute([ $params->email ]);
-    if( $stmt -> fetchColumn() > 0 ) $res = array("res" => "User exist");
+    if( $stmt -> fetchColumn() > 0 ) $res = array("res" => "232");
     else {
         $token = bin2hex( openssl_random_pseudo_bytes( 200 ) );
-        $password_hash = password_hash( $params->password, PASSWORD_DEFAULT, [ 'cost' => 15 ] );
+        $password_hash = password_hash( $params->password, PASSWORD_DEFAULT);
         $stmt = $pdo -> prepare('INSERT INTO users(name,email,password,token) VALUES(?,?,?,?)');
         $stmt -> execute([ $params->name, $params->email, $password_hash, $token ]);
-        if( !$stmt ) $res = array("res" => "Error to Insert the User");
+        if( !$stmt ) $res = array("res" => "233");
         else {
             $mail = new PHPMailer(true);
             // CONFIGURACION DEL SERVIDOR
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->SMTPDebug = 0;
             $mail->isSMTP();
             $mail->Host = "smtp.ionos.es";
             $mail->SMTPAuth = true;
@@ -72,22 +72,13 @@
                         }
                         .container .container__header {
                             width: 100%;
-                            height: 100px;
-                            display: flex;
-                            flex-flow: row nowrap;
-                            align-items: center;
+                            padding: 20px 0;
                             background-color: rgb(34, 145, 219);
                         }
-                        .container .container__header > div:first-child {
-                            flex-grow: 1;
-                        }
-                        .container .container__header > div:nth-child(2) {
-                            flex-grow: 1;
-                        }
-                        .container .container__header > div:nth-child(2) p a {
-                            color: white;
+                        .container .container__header h5 {
                             font-size: 1.2rem;
                             letter-spacing: 2px;
+                            color: white;
                         }
                         .container .container__header img {
                             width: 5rem;
@@ -123,24 +114,13 @@
                             height: 100%;
                             background-color: rgb(34, 145, 219);
                         }
-                        @media screen and (max-width: 706px) {
-                            .container .container__header {
-                                display: block;
-                                height: 100%;
-                                padding: 10px 0;
-                            }
-                        }
                     </style>
                 </head>
                 <body>
                     <div class="container">
                         <div class="container__header">
-                            <div>
-                                <img src="https://freelsdevcamp.es/devicesIOT/src/assets/logo_small_icon_only.png" alt="logo_small_icon_only.png">
-                            </div>
-                            <div>
-                                <p>freelsdevcamp.es</p>
-                            </div>
+                        <img src="https://freelsdevcamp.es/devicesIOT/src/assets/logo_small_icon_only.png" alt="logo_small_icon_only.png">
+                        <h5>freelsdevcamp.es</h5>
                         </div>
                         <div class="container__body">
                             <h1>¡Hola ' . $params->name . '!</h1>
@@ -166,17 +146,17 @@
                 </body>
                 </html>';
             if( $mail->send() ) {
-                $res = array("res" => "User insert successfully");
+                $res = array("res" => "200");
             }else {
                 $last_id = $pdo -> lastInsertId();
                 $stmt = $pdo -> prepare('DELETE FROM users WHERE id = ?');
                 $stmt -> execute([ $last_id ]);
-                $res = array("res" => "User not insert");
+                $res = array("res" => "234");
             }
         }
     }
     
     header('Content-Type: application/json');
 
-    echo json_encode($res, );
+    echo json_encode($res, JSON_FORCE_OBJECT);
 ?>
